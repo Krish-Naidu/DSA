@@ -12,6 +12,8 @@ print("Peek: ", topElement)
 
 # Pop
 poppedElement = stack.pop()
+poppedElement = stack.pop()
+poppedElement = stack.pop()
 print("Pop: ", poppedElement)
 
 # Stack after Pop
