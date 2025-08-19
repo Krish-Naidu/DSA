@@ -1,3 +1,5 @@
+# perfect example of stack in undo (LIFO)
+
 stack = []
 
 # Push
