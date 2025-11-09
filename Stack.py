@@ -1,29 +1,22 @@
-# perfect example of stack in undo (LIFO)
+class Stack:
+    internal_list = []
 
-stack = []
+    def push(self, element:str) -> None:
+        self.internal_list.append(element)
 
-# Push
-stack.append('A')
-stack.append('B')
-stack.append('C')
-print("Stack: ", stack)
 
-# Peek
-topElement = stack[-1]
-print("Peek: ", topElement)
+    def pop(self) -> str:
+        element = self.internal_list.pop(-1)
+        return element
 
-# Pop
-poppedElement = stack.pop()
-poppedElement = stack.pop()
-poppedElement = stack.pop()
-print("Pop: ", poppedElement)
 
-# Stack after Pop
-print("Stack after Pop: ", stack)
+my_stack = Stack()
+my_stack.push("krish")
+my_stack.push("is")
+my_stack.push("a")
+my_stack.push("bot")
 
-# isEmpty
-isEmpty = not bool(stack)
-print("isEmpty: ", isEmpty)
+my_stack.pop()
+my_element = my_stack.pop()
 
-# Size
-print("Size: ",len(stack))
+print(my_element)

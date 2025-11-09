@@ -1,24 +1,19 @@
-queue = []
+class Queue:
+    internal_list = []
 
-# Enqueue
-queue.append('A')
-queue.append('B')
-queue.append('C')
-print("Queue: ", queue)
+    def enqueue(self, element:str) -> None:
+        self.internal_list.append(element)
 
-# Peek
-frontElement = queue[0]
-print("Peek: ", frontElement)
 
-# Dequeue
-poppedElement = queue.pop(0)
-print("Dequeue: ", poppedElement)
+    def dequeue(self) -> str:
+        self.internal_list.pop(0)
 
-print("Queue after Dequeue: ", queue)
 
-# isEmpty
-isEmpty = not bool(queue)
-print("isEmpty: ", isEmpty)
+my_queue = Queue()
+my_queue.enqueue("krish")
+my_queue.enqueue("is")
+my_queue.enqueue("a")
+my_queue.enqueue("bot")
 
-# Size
-print("Size: ", len(queue))
+element = my_queue.dequeue()
+print(element)
