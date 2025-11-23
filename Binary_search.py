@@ -2,38 +2,36 @@
 # Works only on sorted arrays
 # Time Complexity: O(log n)
 
-def binarySearch(arr, targetVal):
-  # Set initial boundaries
-  left = 0                    # Start of search range
-  right = len(arr) - 1        # End of search range
+def binary_search(list:list, item:any) -> int:
 
-  # Continue searching while there are elements to check
-  while left <= right:
-    # Find middle point (avoid overflow)
-    mid = (left + right) // 2
+  # You put index as -1 as the default value - if not found 
+  index = -1 
+  # the idea is u keep changing the start, mid and end index 
+  start = 0
+  end = len(list) - 1
 
-    print("midpoint is: " + str(arr[mid]))
-    # Target found at middle position
-    if arr[mid] == targetVal:
-      return mid
+  while start <= end:
+    mid = (start + end) // 2
+    if list[mid] == item:
+      found = True
+      index = mid
+      break
+    # If item is on the right-hand side, only change the start index. 
+    elif list[mid] < item:
+      start = mid + 1
+    else: 
+    #If item is on the left-hand side, only change the end index.   
+      end = mid - 1
+  
 
- 
-    # Target is in right half
-    if arr[mid] < targetVal:
-      left = mid + 1          # Move left boundary
-    else:
-      # Target is in left half
-      right = mid - 1         # Move right boundary
-
-  # Target not found in array
-  return -1
+  return index
 
 # Test the binary search function
 mylist = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]  # Sorted array
-x = 88                                        # Value to search for
+x = 1                                        # Value to search for
 
 # Perform the search
-result = binarySearch(mylist, x)
+result = binary_search(mylist, x)
 
 # Display the result
 if result != -1:
