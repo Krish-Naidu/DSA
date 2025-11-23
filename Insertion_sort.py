@@ -4,32 +4,37 @@
 # Time Complexity: O(n²) - Worst case, O(n) - Best case (already sorted)
 # Space Complexity: O(1) - In-place sorting
 
+def insertionSort(array):
+    # Start from second element (index 1)
+    for i in range(1, len(array)):
+        # Store current element as temp
+        temp = array[i]
+        # Start from previous element
+        j = i - 1
+        
+        #  ------ OPTION 1 -------
+        # Shift elements greater than temp one position to the right
+        # while j >= 0 and array[j] > temp:
+        #     array[j + 1] = array[j]
+        #     j -= 1
+
+        #  ------ OPTION 2 -------
+        while j >= 0:
+          if array[j] > temp:
+            array[j + 1] = array[j]
+            j = j - 1 
+          else:
+             break
+          
+          
+        # Insert temp at correct position
+        array[j + 1] = temp
+
 # Test array with unsorted numbers
-mylist = [64, 34, 25, 12, 22, 11, 90, 5]
+data = [64, 34, 25, 12, 22, 11, 90, 5]
 
-# Get the length of the array
-n = len(mylist)
+# Call the insertion sort function
+insertionSort(data)
 
-# Start from second element (index 1) since first element is considered sorted
-for i in range(1, n):
-  # Remember where to insert the current element
-  insert_index = i
-  
-  # Remove current element from list to find its correct position
-  current_value = mylist.pop(i)
-  
-  # Look backwards through the sorted portion (left side)
-  # Start from position before current, go to beginning
-  for j in range(i-1, -1, -1):
-    
-    # If element in sorted portion is larger than current value
-    if mylist[j] > current_value:
-      # This is where we should insert (keep looking left)
-      insert_index = j
-    # If we find smaller element, we can stop looking
-  
-  # Insert the current value at its correct position
-  mylist.insert(insert_index, current_value)
-
-# Print the sorted array
-print("Sorted array:", mylist)
+# Print sorted array
+print("Sorted array:", data)
