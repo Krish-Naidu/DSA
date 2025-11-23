@@ -1,8 +1,8 @@
-def linearSearch(arr, targetVal):
+def linearSearch(arr:list, targetVal:any) -> int:
   for i in range(len(arr)):
     if arr[i] == targetVal:
       return i
-  return -1
+  return -1 
 
 mylist = [3, 7, 2, 9, 5, 1, 8, 4, 6]
 x = 4
