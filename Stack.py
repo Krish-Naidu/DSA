@@ -6,7 +6,8 @@ class Stack:
 
 
     def pop(self) -> str:
-        element = self.internal_list.pop(-1)
+        element = self.internal_list.pop(-1)  #Python array has a default pop method that removes the last element of the list and returns it.
+        # We can also specify an index to pop a specific element.
         return element
 
 
