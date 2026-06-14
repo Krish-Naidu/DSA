@@ -22,8 +22,6 @@ def binary_search(list:list, item:any) -> int:
     else: 
     #If item is on the left-hand side, only change the end index.   
       end = mid - 1
-  
-
   return index
 
 # Test the binary search function

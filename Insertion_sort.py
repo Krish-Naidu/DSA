@@ -9,26 +9,17 @@ def insertionSort(array):
     for i in range(1, len(array)):
         # Store current element as temp
         temp = array[i]
-        # Start from previous element
-        j = i - 1
         
-        #  ------ OPTION 1 -------
-        # Shift elements greater than temp one position to the right
-        # while j >= 0 and array[j] > temp:
-        #     array[j + 1] = array[j]
-        #     j -= 1
-
-        #  ------ OPTION 2 -------
-        while j >= 0:
-          if array[j] > temp:
-            array[j + 1] = array[j]
-            j = j - 1 
-          else:
-             break
-          
-          
+        insert_position = i
+        for j in range(i - 1, -1, -1):
+            if array[j] > temp:
+                array[j + 1] = array[j]
+                insert_position = j
+            else:
+                break
+            
         # Insert temp at correct position
-        array[j + 1] = temp
+        array[insert_position] = temp
 
 # Test array with unsorted numbers
 data = [64, 34, 25, 12, 22, 11, 90, 5]

@@ -1,8 +1,9 @@
 class TreeNode:
+  data = None
+  left = None
+  right = None
   def __init__(self, data):
     self.data = data
-    self.left = None
-    self.right = None
 
 root = TreeNode('R')
 nodeA = TreeNode('A')
